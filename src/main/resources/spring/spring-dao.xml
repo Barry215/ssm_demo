@@ -67,10 +67,20 @@
         <property name="filters" value="stat" />
         <property name="proxyFilters">
             <list>
+                <!--<ref bean="statfilter" />-->
                 <ref bean="logFilter" />
             </list>
         </property>
     </bean>
+
+    <!-- 慢SQL记录 *start* -->
+    <!--<bean id="statfilter" class="com.alibaba.druid.filter.stat.StatFilter">-->
+        <!--&lt;!&ndash; 开启合并sql &ndash;&gt;-->
+        <!--<property name="mergeSql" value="true" />-->
+        <!--&lt;!&ndash; 开启慢查询语句,1秒 &ndash;&gt;-->
+        <!--<property name="slowSqlMillis" value="1000" />-->
+        <!--<property name="logSlowSql" value="true" />-->
+    <!--</bean>-->
 
     <!-- 上面的druid的配置 -->
     <bean id="logFilter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">

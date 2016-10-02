@@ -9,6 +9,11 @@
         </encoder>
     </appender>
 
+    <logger name="com.frank.dao" level="DEBUG"/>
+    <!--<logger name="org.mybatis">-->
+        <!--<level value="TRACE"/>-->
+    <!--</logger>-->
+
     <root level="debug">
         <appender-ref ref="STDOUT" />
     </root>

@@ -4,24 +4,50 @@
 <head>
     <title>首页</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 </head>
 <body>
 
-<h2>
-    <a href="#" target="_blank">Hello YouMeek</a>
-</h2>
+<form action="/login" method="post">
+    <table>
+        <tr>
+            <td>用户名: </td>
+            <td><input type="text" name="username"/></td>
+        </tr>
 
-<br>
+        <tr>
+            <td>密码: </td>
+            <td><input type="password" name="password"/></td>
+        </tr>
 
-<a href="#" target="_blank">查询用户信息并跳转到一个JSP页面</a>
+        <tr>
+            <td colspan="2"><input type = "submit" value = "登陆"/></td>
+        </tr>
+    </table>
+</form>
 
-<br>
+<form action="/signUp" method="post">
+    <table>
+        <tr>
+            <td>用户名: </td>
+            <td><input type="text" name="username"/></td>
+        </tr>
 
-<a href="#" target="_blank">查询用户信息并直接输出JSON数据</a>
+        <tr>
+            <td>密码: </td>
+            <td><input type="password" name="password"/></td>
+        </tr>
+
+        <tr>
+            <td>手机号: </td>
+            <td><input type="text" name="phone"/></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><input type = "submit" value = "注册"/></td>
+        </tr>
+    </table>
+</form>
 
 </body>
 </html>

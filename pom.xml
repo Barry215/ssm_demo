@@ -9,7 +9,8 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-
+    <!--<maven.compiler.source>1.8</maven.compiler.source>-->
+    <!--<maven.compiler.target>1.8</maven.compiler.target>-->
     <spring.version>4.3.2.RELEASE</spring.version>
   </properties>
 
@@ -118,7 +119,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>6.0.3</version>
+      <version>5.1.39</version>
       <scope>runtime</scope>
     </dependency>
 
@@ -134,13 +135,6 @@
       <!--<artifactId>c3p0</artifactId>-->
       <!--<version>0.9.1.2</version>-->
     <!--</dependency>-->
-
-    <!--taglibs-->
-    <dependency>
-      <groupId>taglibs</groupId>
-      <artifactId>standard</artifactId>
-      <version>1.1.2</version>
-    </dependency>
 
     <!--jackson-->
     <dependency>
@@ -222,6 +216,7 @@
 
 
   </dependencies>
+
   <build>
     <finalName>ssm_demo</finalName>
     <plugins>
@@ -251,4 +246,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>
