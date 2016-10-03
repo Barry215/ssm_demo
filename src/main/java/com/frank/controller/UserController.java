@@ -2,8 +2,8 @@ package com.frank.controller;
 
 import com.frank.dto.JsonResult;
 import com.frank.dto.RegisterResult;
-import com.frank.dto.SignUpForm;
-import com.frank.entity.User;
+import com.frank.dto.UserForm;
+import com.frank.service.MailService;
 import com.frank.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,11 +28,17 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    @Resource
+    private MailService mailService;
+
     @RequestMapping(value = "/signUp", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public JsonResult<?> getRegisterResult(@RequestBody SignUpForm signUpForm, HttpSession httpSession){
-        RegisterResult result = userService.getRegisterResult(signUpForm.getUser());
+    public JsonResult<?> getRegisterResult(@RequestBody UserForm userForm, HttpSession httpSession){
+        RegisterResult result = userService.getRegisterResult(userForm.getUser());
         if (result.getT_error() == 0){
+            if (!mailService.sendMailValidate(userForm.getUser().getEmail())){
+                return new JsonResult<>(true, result.getResult(), "邮箱发送失败");
+            }
             return new JsonResult<>(true, result.getResult(), null);
         }else {
             return new JsonResult<String>(false, result.getResult());

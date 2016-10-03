@@ -11,4 +11,6 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Integer userId);
 
+    int updateActivate(String EmailAddress);
+
 }

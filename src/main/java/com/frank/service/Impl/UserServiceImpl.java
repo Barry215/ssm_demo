@@ -28,4 +28,19 @@ public class UserServiceImpl implements UserService {
             return new RegisterResult(0,"注册成功");
         }
     }
+
+    @Override
+    public boolean hasUser(String EmailAddress) {
+        return false;
+    }
+
+    @Override
+    public boolean updateActivate(String EmailAddress) {
+        if (userMapper.updateActivate(EmailAddress) == 1){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
 }

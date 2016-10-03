@@ -13,7 +13,14 @@
   <sql id="Base_Column_List">
     USER_ID, USERNAME, PASSWORD, EMAIL, PHONE, SEX
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <update id="updateActivate" parameterType="java.lang.String">
+      UPDATE USER
+      <set>
+        <if test="EmailAddress != null">ACTIVATE = 'Y'</if>
+      </set>
+      WHERE EmailAddress = #{EmailAddress}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user

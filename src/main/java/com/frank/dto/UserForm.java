@@ -6,7 +6,7 @@ import com.frank.entity.User;
  * 注册填写表单
  * Created by RichardW on 8/23/2016.
  */
-public class SignUpForm {
+public class UserForm {
     /**
      * 手机验证码
      */

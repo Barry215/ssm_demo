@@ -9,4 +9,9 @@ import com.frank.entity.User;
 public interface UserService {
 
     RegisterResult getRegisterResult(User user);
+
+    boolean hasUser(String EmailAddress);
+
+    boolean updateActivate(String EmailAddress);
+
 }

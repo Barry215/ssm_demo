@@ -2,7 +2,7 @@ package com.frank.controller;
 
 
 import com.frank.Base.BaseTest;
-import com.frank.dto.SignUpForm;
+import com.frank.dto.UserForm;
 import com.frank.entity.User;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -27,10 +27,10 @@ public class UserControllerTest extends BaseTest{
         user.setPhone("15958041842");
         user.setSex("G");
         user.setEmail("530438645@qq.com");
-        SignUpForm signUpForm = new SignUpForm();
-        signUpForm.setPhoneCode("111111");
-        signUpForm.setUser(user);
-        logger.info("注册结果："+userController.getRegisterResult(signUpForm,session));
+        UserForm userForm = new UserForm();
+        userForm.setPhoneCode("111111");
+        userForm.setUser(user);
+        logger.info("注册结果："+userController.getRegisterResult(userForm,session));
 
     }
 

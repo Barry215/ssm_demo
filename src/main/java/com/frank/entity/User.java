@@ -1,5 +1,7 @@
 package com.frank.entity;
 
+import javax.xml.crypto.Data;
+
 public class User {
     private Integer userId;
 
@@ -12,6 +14,26 @@ public class User {
     private String phone;
 
     private String sex;
+
+    private String activate;
+
+    private Data registerTime;
+
+    public String getActivate() {
+        return activate;
+    }
+
+    public void setActivate(String activate) {
+        this.activate = activate;
+    }
+
+    public Data getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Data registerTime) {
+        this.registerTime = registerTime;
+    }
 
     public Integer getUserId() {
         return userId;
