@@ -5,7 +5,7 @@ package com.frank.service;
  */
 public interface MailService {
 
-    boolean sendMailValidate(String EmailAddress);
+    boolean sendValidateMail(String EmailAddress);
 
     boolean validateMail(String EmailAddress, String ValidateCode);
 }

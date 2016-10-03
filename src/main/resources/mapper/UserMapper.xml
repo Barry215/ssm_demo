@@ -18,7 +18,7 @@
       <set>
         <if test="EmailAddress != null">ACTIVATE = 'Y'</if>
       </set>
-      WHERE EmailAddress = #{EmailAddress}
+      WHERE EMAIL = #{EmailAddress,jdbcType=VARCHAR}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -79,5 +79,12 @@
       </if>
     </trim>
   </insert>
-
+  <select id="HasEmail" parameterType="java.lang.String"
+          resultType="java.lang.Integer">
+    SELECT USER_ID from user
+    where 1=1
+    <if test="EmailAddress != null">
+      AND EMAIL =#{_parameter}
+    </if>
+  </select>
 </mapper>

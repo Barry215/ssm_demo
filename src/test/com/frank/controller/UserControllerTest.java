@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 
 public class UserControllerTest extends BaseTest{
@@ -27,6 +28,8 @@ public class UserControllerTest extends BaseTest{
         user.setPhone("15958041842");
         user.setSex("G");
         user.setEmail("530438645@qq.com");
+        user.setActivate("N");
+        user.setRegisterTime(new Date());
         UserForm userForm = new UserForm();
         userForm.setPhoneCode("111111");
         userForm.setUser(user);

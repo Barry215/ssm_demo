@@ -13,4 +13,6 @@ public interface UserMapper {
 
     int updateActivate(String EmailAddress);
 
+    int HasEmail(String EmailAddress);
+
 }

@@ -29,12 +29,10 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
     public boolean hasUser(String EmailAddress) {
-        return false;
+        return userMapper.HasEmail(EmailAddress)>0;
     }
 
-    @Override
     public boolean updateActivate(String EmailAddress) {
         if (userMapper.updateActivate(EmailAddress) == 1){
             return true;

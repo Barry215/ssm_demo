@@ -31,15 +31,16 @@ public class UserController {
     @Resource
     private MailService mailService;
 
+    //返回的是json报文，则要加上produces = {"application/json;charset=UTF-8"}
     @RequestMapping(value = "/signUp", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public JsonResult<?> getRegisterResult(@RequestBody UserForm userForm, HttpSession httpSession){
         RegisterResult result = userService.getRegisterResult(userForm.getUser());
         if (result.getT_error() == 0){
-            if (!mailService.sendMailValidate(userForm.getUser().getEmail())){
-                return new JsonResult<>(true, result.getResult(), "邮箱发送失败");
+            if (!mailService.sendValidateMail(userForm.getUser().getEmail())){
+                return new JsonResult<String>(true, result.getResult(), "邮箱发送失败");
             }
-            return new JsonResult<>(true, result.getResult(), null);
+            return new JsonResult<String>(true, result.getResult(), null);
         }else {
             return new JsonResult<String>(false, result.getResult());
         }

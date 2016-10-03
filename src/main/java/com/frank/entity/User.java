@@ -1,6 +1,6 @@
 package com.frank.entity;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 public class User {
     private Integer userId;
@@ -17,7 +17,7 @@ public class User {
 
     private String activate;
 
-    private Data registerTime;
+    private Date registerTime;
 
     public String getActivate() {
         return activate;
@@ -27,11 +27,11 @@ public class User {
         this.activate = activate;
     }
 
-    public Data getRegisterTime() {
+    public Date getRegisterTime() {
         return registerTime;
     }
 
-    public void setRegisterTime(Data registerTime) {
+    public void setRegisterTime(Date registerTime) {
         this.registerTime = registerTime;
     }
 
