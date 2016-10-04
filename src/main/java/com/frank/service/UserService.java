@@ -10,8 +10,8 @@ public interface UserService {
 
     RegisterResult getRegisterResult(User user);
 
-    boolean hasUser(String EmailAddress);
+    boolean hasUser(String email);
 
-    boolean updateActivate(String EmailAddress);
+    boolean updateActivate(String email);
 
 }

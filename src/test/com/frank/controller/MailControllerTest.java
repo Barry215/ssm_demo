@@ -22,8 +22,8 @@ public class MailControllerTest extends BaseTest{
 
     @Test
     public void ValidateMail(){
-        String Email = "530438645@qq.com";
+        String email = "530438645@qq.com";
         String validateCode = "2a8cf02a077e60e339b53131da569e03";
-        logger.info("激活结果："+ mailValidateController.getValidateMailResult(Email,validateCode));
+        logger.info("激活结果："+ mailValidateController.getValidateMailResult(email,validateCode));
     }
 }

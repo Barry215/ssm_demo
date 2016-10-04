@@ -16,7 +16,7 @@
     <update id="updateActivate" parameterType="java.lang.String">
       UPDATE USER
       <set>
-        <if test="EmailAddress != null">ACTIVATE = 'Y'</if>
+        <if test="value != null">ACTIVATE = 'Y'</if>
       </set>
       WHERE EMAIL = #{EmailAddress,jdbcType=VARCHAR}
     </update>
@@ -79,12 +79,16 @@
       </if>
     </trim>
   </insert>
+  <select id="HasUserName" parameterType="java.lang.String"
+          resultType="java.lang.String">
+    SELECT user_HasUsername(#{username,jdbcType=VARCHAR})
+  </select>
   <select id="HasEmail" parameterType="java.lang.String"
-          resultType="java.lang.Integer">
-    SELECT USER_ID from user
-    where 1=1
-    <if test="EmailAddress != null">
-      AND EMAIL =#{_parameter}
-    </if>
+          resultType="java.lang.String">
+    SELECT user_HasEmail(#{email,jdbcType=VARCHAR})
+  </select>
+  <select id="HasPhone" parameterType="java.lang.String"
+          resultType="java.lang.String">
+    SELECT user_HasPhone(#{phone,jdbcType=VARCHAR},'zh')
   </select>
 </mapper>

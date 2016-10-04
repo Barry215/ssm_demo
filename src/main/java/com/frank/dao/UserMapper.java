@@ -13,6 +13,10 @@ public interface UserMapper {
 
     int updateActivate(String EmailAddress);
 
-    int HasEmail(String EmailAddress);
+    String HasEmail(String email);
+
+    String HasPhone(String phone);
+
+    String HasUserName(String username);
 
 }

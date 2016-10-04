@@ -29,12 +29,16 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public boolean hasUser(String EmailAddress) {
-        return userMapper.HasEmail(EmailAddress)>0;
+    public boolean hasUser(String email) {
+        if (userMapper.HasEmail(email).equals("Y")){
+            return true;
+        }else {
+            return false;
+        }
     }
 
-    public boolean updateActivate(String EmailAddress) {
-        if (userMapper.updateActivate(EmailAddress) == 1){
+    public boolean updateActivate(String email) {
+        if (userMapper.updateActivate(email) == 1){
             return true;
         }else {
             return false;

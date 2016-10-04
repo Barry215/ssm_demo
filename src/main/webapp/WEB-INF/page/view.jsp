@@ -7,47 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-<form action="/login" method="post">
-    <table>
-        <tr>
-            <td>用户名: </td>
-            <td><input type="text" name="username"/></td>
-        </tr>
-
-        <tr>
-            <td>密码: </td>
-            <td><input type="password" name="password"/></td>
-        </tr>
-
-        <tr>
-            <td colspan="2"><input type = "submit" value = "登陆"/></td>
-        </tr>
-    </table>
-</form>
-
-<form action="/signUp" method="post">
-    <table>
-        <tr>
-            <td>用户名: </td>
-            <td><input type="text" name="username"/></td>
-        </tr>
-
-        <tr>
-            <td>密码: </td>
-            <td><input type="password" name="password"/></td>
-        </tr>
-
-        <tr>
-            <td>手机号: </td>
-            <td><input type="text" name="phone"/></td>
-        </tr>
-
-        <tr>
-            <td colspan="2"><input type = "submit" value = "注册"/></td>
-        </tr>
-    </table>
-</form>
-
+    <h2>测试页面</h2>
 </body>
 </html>
