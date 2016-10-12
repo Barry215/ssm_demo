@@ -19,4 +19,5 @@ public interface UserMapper {
 
     String HasUserName(String username);
 
+    User getUserByEmail(String email);
 }

@@ -8,10 +8,12 @@
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
     <result column="PHONE" jdbcType="VARCHAR" property="phone" />
     <result column="SEX" jdbcType="CHAR" property="sex" />
+    <result column="ROLE" jdbcType="VARCHAR" property="role"/>
+    <result column="ACTIVATE" jdbcType="ENUM " property="activate"/>
   </resultMap>
 
   <sql id="Base_Column_List">
-    USER_ID, USERNAME, PASSWORD, EMAIL, PHONE, SEX
+    USER_ID, USERNAME, PASSWORD, EMAIL, PHONE, SEX, ROLE, ACTIVATE
   </sql>
     <update id="updateActivate" parameterType="java.lang.String">
       UPDATE USER
@@ -90,5 +92,11 @@
   <select id="HasPhone" parameterType="java.lang.String"
           resultType="java.lang.String">
     SELECT user_HasPhone(#{phone,jdbcType=VARCHAR},'zh')
+  </select>
+  <select id="getUserByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where EMAIL = #{email,jdbcType=VARCHAR}
   </select>
 </mapper>

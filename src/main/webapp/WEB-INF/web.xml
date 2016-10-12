@@ -21,6 +21,21 @@
         <!--<param-value>classpath*:spring/spring-*.xml</param-value>-->
     <!--</context-param>-->
 
+    <!-- shiro过滤器，DelegatingFilterProx会从spring容器中找shiroFilter代理模式 -->
+    <filter>
+        <filter-name>ShiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <!-- 该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由ServletContainer管理 -->
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>ShiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- Spring字符集过滤器 -->
     <filter>
         <filter-name>SpringEncodingFilter</filter-name>

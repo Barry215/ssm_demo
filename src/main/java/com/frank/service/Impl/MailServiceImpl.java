@@ -19,7 +19,7 @@ import java.util.Properties;
 @Service
 public class MailServiceImpl implements MailService {
 
-    private String activateCode = "sgh";
+    private String salt = "sgh";
     private String FROM = "15958041842@163.com";//发件人的email
     private String PWD = "maijinYAHU2016";//发件人密码
 
@@ -30,11 +30,11 @@ public class MailServiceImpl implements MailService {
 
 
     public boolean validateMail(String EmailAddress, String ValidateCode) {
-        return MD5Util.validate(EmailAddress+ activateCode,ValidateCode);
+        return MD5Util.validate(EmailAddress+ salt,ValidateCode);
     }
 
     public String getValidateCode(String EmailAddress){
-        return MD5Util.encode2hex(EmailAddress+activateCode);
+        return MD5Util.encode2hex(EmailAddress+ salt);
     }
 
     public String getValidateLink(String EmailAddress){
