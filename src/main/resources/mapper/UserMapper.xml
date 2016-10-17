@@ -12,9 +12,6 @@
     <result column="ACTIVATE" jdbcType="ENUM " property="activate"/>
   </resultMap>
 
-  <sql id="Base_Column_List">
-    USER_ID, USERNAME, PASSWORD, EMAIL, PHONE, SEX, ROLE, ACTIVATE
-  </sql>
     <update id="updateActivate" parameterType="java.lang.String">
       UPDATE USER
       <set>
@@ -23,8 +20,8 @@
       WHERE EMAIL = #{EmailAddress,jdbcType=VARCHAR}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
+    select
+      USER_ID, USERNAME, `PASSWORD`, EMAIL, PHONE, SEX, ROLE, ACTIVATE
     from user
     where USER_ID = #{userId,jdbcType=INTEGER}
   </select>
@@ -33,7 +30,7 @@
     where USER_ID = #{userId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.frank.entity.User">
-    insert into user (USER_ID, USERNAME, PASSWORD, 
+    insert into user (USER_ID, USERNAME, `PASSWORD`,
       EMAIL, PHONE, SEX)
     values (#{userId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR})
@@ -95,7 +92,7 @@
   </select>
   <select id="getUserByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List" />
+      USER_ID, USERNAME, `PASSWORD`, EMAIL, PHONE, SEX, ROLE, ACTIVATE
     from user
     where EMAIL = #{email,jdbcType=VARCHAR}
   </select>
